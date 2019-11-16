@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-6"><img [src]="test+value" alt="">
+        <div class="form-group">
+            <input type="range" min="1" max="100" value="50" class="slider" id="sliderinput" [(ngModel)]="value" style="margin:auto;"></div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-content">
+                <div class="px-3 py-3">
+                    <div class="media">
+                        <div class="media-body text-left">
+                            <h3 class="mb-1 success">John Wayne</h3>
+                            <span>male, 65 years, stage 4</span>
+                        </div>
+                        <div class="media-right align-self-center">
+                            <i class="icon-user success font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <app-viewer-comment-list (selectedComment)="goToSlice($event)" usedView="iso2d"></app-viewer-comment-list>
+        <app-viewer-comment usedView="iso2d" [selectedObject]="value" description="Slice" ></app-viewer-comment>
+
+
+    </div>
+</div>
+
+
+

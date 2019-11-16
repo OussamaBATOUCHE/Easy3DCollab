@@ -4,19 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PlanStateService {
-  private planState: {[organName: string]: string[]} = {};
+  private planState: {[usedView: string]: {[objectName: string]: string[]} }= {};
   constructor() {
       this.planState["test"] = ["asdsad"]
   }
-  addCommentToPlan (organ: string, comment: string) {
-    if (this.planState.hasOwnProperty(organ))
+  addCommentToPlan (usedView: string, objectName: string, comment: string) {
+    if (!this.planState.hasOwnProperty(usedView))
     {
-      this.planState[organ].push(comment);
+      this.planState[usedView] = {};
+    }
+    if (this.planState.hasOwnProperty(objectName))
+    {
+      this.planState[usedView][objectName].push(comment);
     } else {
-      this.planState[organ] = [comment];
+      this.planState[usedView][objectName] = [comment];
     }
   }
-  getPlan(){
-      return this.planState;
+  getPlan(usedView: string) {
+      if(!this.planState.hasOwnProperty(usedView)){
+        this.planState[usedView] = {}
+      }
+      return this.planState[usedView];
   }
 }

@@ -87,7 +87,7 @@ export class CadSceneComponent implements OnInit, AfterViewInit {
     spotLight.position.set(500, 500, 500);
     spotLight.castShadow = true;
     const spotLight2 = new THREE.PointLight(0xffffff, 5);
-    spotLight2.position.set(-500, -500, -500);
+    spotLight2.position.set(-500, -5000, -500);
 
     this.scene.add(spotLight);
     this.scene.add(spotLight2);

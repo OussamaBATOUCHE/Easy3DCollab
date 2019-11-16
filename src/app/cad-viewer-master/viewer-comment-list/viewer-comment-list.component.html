@@ -4,7 +4,7 @@
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let item of plan | keyvalue">
-                    <a (click)="isCollapsed[item.key] = !isCollapsed[item.key]"><span class="badge badge-primary mr-2"> {{item.value.length}}</span> {{item.key}}</a>
+                    <a (click)="isCollapsed[item.key] = !isCollapsed[item.key];selectedComment.emit(item.key)"><span class="badge badge-primary mr-2"> {{item.value.length}}</span> {{item.key}}</a>
                     <div class="" *ngIf="isCollapsed[item.key]">
                         <hr />
                         <blockquote class="blockquote border-left-primary mt-1 border-left-3 pl-2 text-small" *ngFor="let comment of item.value"><p >

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PlanStateService} from '../shared/plan-state.service';
 
 @Component({
@@ -7,11 +7,13 @@ import {PlanStateService} from '../shared/plan-state.service';
   styleUrls: ['./viewer-comment-list.component.scss']
 })
 export class ViewerCommentListComponent implements OnInit {
+  @Output() selectedComment = new EventEmitter<string>();
+  @Input() usedView: string;
   plan = {};
   isCollapsed = {};
   constructor(private planStateService: PlanStateService) { }
 
   ngOnInit() {
-    this.plan = this.planStateService.getPlan();
+    this.plan = this.planStateService.getPlan(this.usedView);
   }
 }

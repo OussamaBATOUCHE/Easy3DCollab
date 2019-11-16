@@ -27,18 +27,24 @@
                                 </div>
                             </div>
 
-                            <app-viewer-comment-list></app-viewer-comment-list>
-                            <app-viewer-comment></app-viewer-comment>
+                            <app-viewer-comment-list usedView="3d"></app-viewer-comment-list>
+                            <app-viewer-comment usedView="3d"></app-viewer-comment>
 
 
                         </div>
-                    </div></ng-template>
+                    </div>
+                    </ng-template>
                 </ngb-tab>
                 <ngb-tab id="bar">
-                    <ng-template ngbTabTitle><b>Fancy</b> title</ng-template>
+                    <ng-template ngbTabTitle>Organ dosis</ng-template>
                     <ng-template ngbTabContent>
 <app-dvh></app-dvh>
-                        <p>mon drops ice cream chocolate bar pudding dragée. Pastry cake cheesecake chocolate cake. Toffee bonbon fruitcake candy canes biscuit. Jelly chocolate cake danish tart jelly-o candy jelly powder. Brownie gummi bears brownie bear claw brownie bear claw croissant marshmallow. Pudding cake icing gummies pudding candy gingerbread macaroon. Chupa chups pastry tiramisu liquorice tiramisu marshmallow gummies brownie candy canes.</p>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab id="isodose">
+                    <ng-template ngbTabTitle>2D Iso Dose Curves</ng-template>
+                    <ng-template ngbTabContent>
+                        <app-image-iso-dose></app-image-iso-dose>
                     </ng-template>
                 </ngb-tab>
             </ngb-tabset>

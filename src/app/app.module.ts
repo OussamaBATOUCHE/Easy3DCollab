@@ -24,12 +24,15 @@ import { CadViewerComponent } from './cad-viewer-master/cad-viewer/cad-viewer.co
 import { CadSceneComponent } from './cad-viewer-master/cad-viewer/cad-scene/cad-scene.component';
 import { CadControlsComponent } from './cad-viewer-master/cad-viewer/cad-controls/cad-controls.component';
 import {CadSceneControlsControllerService} from './cad-viewer-master/cad-viewer/cad-scene-controls-controller.service';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ViewerCommentComponent } from './cad-viewer-master/viewer-comment/viewer-comment.component';
 import { ViewerCommentListComponent } from './cad-viewer-master/viewer-comment-list/viewer-comment-list.component';
 //import { DvhComponent } from './cad-viewer-master/dvh/dvh.component';
 import { ChartsModule} from 'ng2-charts';
 import {DvhComponent} from './cad-viewer-master/dvh/dvh.component';
+import { ImageIsoDoseComponent } from './cad-viewer-master/image-iso-dose/image-iso-dose.component';
+import {NouisliderModule} from 'ng2-nouislider';
+import {Ng5SliderModule} from 'ng5-slider';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
@@ -42,7 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
   @NgModule({
-    declarations: [AppComponent, FullLayoutComponent,  CadViewerMasterComponent, CadViewerComponent, CadSceneComponent, CadControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent],
+    declarations: [AppComponent, FullLayoutComponent,  CadViewerMasterComponent, CadViewerComponent, CadSceneComponent, CadControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent],
     imports: [
       BrowserAnimationsModule,
       AppRoutingModule,
@@ -51,6 +54,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       ReactiveFormsModule,
       NgbModule,
       ChartsModule,
+      Ng5SliderModule,
+        FormsModule,
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
