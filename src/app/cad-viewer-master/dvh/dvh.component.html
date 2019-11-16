@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Line Chart</h4>
+    </div>
+    <div class="card-content">
+        <div class="card-body">
+            <div class="height-400">
+                <div>
+                    <div style="display: block">
+                        <canvas baseChart width="400" height="400"
+                                [datasets]="lineChartData"
+
+                                [options]="options"
+                                [colors]="lineChartColors"
+                                [legend]="lineChartLegend"
+                                [chartType]="lineChartType"
+                                [plugins]="lineChartPlugins">
+                        </canvas>
+                    </div>
+                </div>            </div>
+        </div>
+    </div>
+</div>

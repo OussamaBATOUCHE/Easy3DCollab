@@ -1,0 +1,16 @@
+<div class="card" *ngIf="selectedOrgan">
+    <div class="card-header"><h4 class="card-title">{{selectedOrgan}}</h4></div>
+    <div class="card-content" aria-expanded="true">
+        <div class="card-body">
+            <fieldset class="form-group">
+                <textarea class="form-control" id="placeTextarea" rows="3" placeholder="Feedback" [formControl]="commentForm"></textarea>
+            </fieldset>
+            <div class="btn-group float-right" role="group" aria-label="Basic example">
+
+
+                <button type="button" class="btn btn-sm btn-raised btn-secondary">Cancel</button>
+                <button type="button" class="btn btn-sm btn-raised btn-success" (click)="onSubmit()">Add Comment</button>
+
+            </div></div>
+    </div>
+</div>
