@@ -45,7 +45,7 @@ export class CadSceneComponent implements OnInit, AfterViewInit {
     this.loadGLTFModel('PTV_45.glb', loader);
     this.loadGLTFModel('PTV_50-4.glb', loader);
     this.loadGLTFModel('Femur_R.glb', loader);
-    this.loadGLTFModel('25_00-Gy.glb', loader);
+    //this.loadGLTFModel('.glb', loader);
     console.log(this.scene);
     this.setControls();
     this.addRenderFunction('raycasterIntersector');

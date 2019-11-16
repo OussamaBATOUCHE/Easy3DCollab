@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import { Options } from 'ng5-slider';
 
 @Component({
@@ -6,29 +6,30 @@ import { Options } from 'ng5-slider';
   templateUrl: './image-iso-dose.component.html',
   styleUrls: ['./image-iso-dose.component.scss']
 })
-export class ImageIsoDoseComponent implements OnInit, OnChanges {
-  value: number = 1;
+export class ImageIsoDoseComponent implements OnInit {
+  @Input('patientId') patientId: string;
+  @Input('planId') planId: string;
+  value = 1;
   options: Options = {
     floor: 1,
     ceil: 99
   };
-  test = 'https://junction-planreview.azurewebsites.net//api/patients/Head_Neck/plans/JSu-IM101/RenderedBitmaps/';
+  test = 'https://junction-planreview.azurewebsites.net/api/patients/' + this.patientId + '/plans/' + this.planId + '/RenderedBitmaps/';
   constructor() { }
 
   ngOnInit() {
-    for(let i=1;i<=100;i++){
+    this.test = 'https://junction-planreview.azurewebsites.net/api/patients/' + this.patientId + '/plans/' + this.planId + '/RenderedBitmaps/';
+
+    console.log(this.test);
+    for (let i = 1; i <= 100; i++) {
 
       this.value = i;
     }
     this.value = 1;
   }
-  onClick(){
-    this.test = 'https://junction-planreview.azurewebsites.net//api/patients/Head_Neck/plans/JSu-IM101/RenderedBitmaps/' + this.value;
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.onClick();
-  }
+
+
   goToSlice(event) {
-    this.value=event;
+    this.value = event;
   }
 }

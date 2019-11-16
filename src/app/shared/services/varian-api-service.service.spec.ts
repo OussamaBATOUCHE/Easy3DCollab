@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VarianApiServiceService } from './varian-api-service.service';
+import { VarianApiService } from './varian-api.service';
 
 describe('VarianApiServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: VarianApiServiceService = TestBed.get(VarianApiServiceService);
+    const service: VarianApiService = TestBed.get(VarianApiService);
     expect(service).toBeTruthy();
   });
 });

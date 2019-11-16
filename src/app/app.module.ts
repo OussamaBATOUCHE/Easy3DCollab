@@ -33,6 +33,9 @@ import {DvhComponent} from './cad-viewer-master/dvh/dvh.component';
 import { ImageIsoDoseComponent } from './cad-viewer-master/image-iso-dose/image-iso-dose.component';
 import {NouisliderModule} from 'ng2-nouislider';
 import {Ng5SliderModule} from 'ng5-slider';
+import { PatientOverviewComponent } from './patient-overview/patient-overview.component';
+import { PatientInfoComponent } from './patient-overview/patient-info/patient-info.component';
+import { PatientPlansComponent } from './patient-overview/patient-plans/patient-plans.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
@@ -45,7 +48,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
   @NgModule({
-    declarations: [AppComponent, FullLayoutComponent,  CadViewerMasterComponent, CadViewerComponent, CadSceneComponent, CadControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent],
+    declarations: [AppComponent, FullLayoutComponent,  CadViewerMasterComponent, CadViewerComponent, CadSceneComponent, CadControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent],
     imports: [
       BrowserAnimationsModule,
       AppRoutingModule,

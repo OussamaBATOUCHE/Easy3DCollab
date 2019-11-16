@@ -1,0 +1,50 @@
+<table class="table table-responsive-md text-center">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+<tbody>
+
+<tr *ngFor="let element of (patients | async); let i = index" >
+    <td>{{1}}</td>
+    <td>
+        <div class="custom-control custom-checkbox m-0">
+            <input type="checkbox" class="custom-control-input" id="item1">
+            <label class="custom-control-label col-form-label" for="item1"></label>
+        </div>
+    </td>
+    <td>{{element}}</td>
+    <td>Carter</td>
+    <td>Male</td>
+    <td><a (click)="open(content,element)"> Open Treatment Plans</a></td>
+    <td>
+        <a [routerLink]="'/patient/'+element" title="">
+            <i class="ft-user font-medium-3 mr-2"></i>
+        </a>
+
+    </td>
+</tr>
+
+</tbody>
+</table>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-patient-plans [patientId]="patientId"></app-patient-plans>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-raised" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

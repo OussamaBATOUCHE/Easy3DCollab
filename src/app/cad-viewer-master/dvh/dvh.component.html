@@ -4,20 +4,34 @@
     </div>
     <div class="card-content">
         <div class="card-body">
-            <div>
-                <div>
-                    <div style="display: block" width="400" height="200">
-                        <canvas baseChart
-                                [datasets]="lineChartData"
+            <div class="row">
+                <div class="col-8">
+                    <div>
+                        <div style="display: block" width="400" height="200">
+                            <canvas baseChart
+                                    [datasets]="lineChartData"
 
-                                [options]="options"
-                                [colors]="lineChartColors"
-                                [legend]="lineChartLegend"
-                                [chartType]="lineChartType"
-                                [plugins]="lineChartPlugins">
-                        </canvas>
+                                    [options]="options"
+                                    [colors]="lineChartColors"
+                                    [legend]="lineChartLegend"
+                                    [chartType]="lineChartType"
+                                    [plugins]="lineChartPlugins"
+                                    (chartClick)="onChartClick($event)"
+
+                            #charts>
+                            </canvas>
+                            <canvas #testchart></canvas>
+                        </div>
                     </div>
-                </div>            </div>
+                </div>
+                <div class="col-4">
+
+                    <app-viewer-comment-list (selectedComment)="goToSlice($event)"
+                                             usedView="dvh"></app-viewer-comment-list>
+                    <app-viewer-comment usedView="dvh" [selectedObject]="value"
+                                        description="DvH"></app-viewer-comment>
+                </div>
+            </div>
         </div>
     </div>
 </div>
