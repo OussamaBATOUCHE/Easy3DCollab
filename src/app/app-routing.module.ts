@@ -3,7 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { FullLayoutComponent } from './layouts/full/full-layout.component';
 import { ContentLayoutComponent } from './layouts/content/content-layout.component';
-import { CadViewerMasterComponent} from './cad-viewer-master/cad-viewer-master.component';
+import { TreatmentViewerMasterComponent} from './treatment-viewer-master/treatment-viewer-master.component';
 import { Full_ROUTES } from './shared/routes/full-layout.routes';
 import { CONTENT_ROUTES } from './shared/routes/content-layout.routes';
 

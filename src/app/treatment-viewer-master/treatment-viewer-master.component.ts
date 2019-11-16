@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {CadSceneControlsControllerService} from './cad-viewer/cad-scene-controls-controller.service';
+import {TreatmentSceneControlsControllerService} from './treatment-viewer/treatment-scene-controls-controller.service';
 
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import {VarianApiService} from '../shared/services/varian-api.service';
@@ -10,10 +10,10 @@ import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cad-viewer-master',
-  templateUrl: './cad-viewer-master.component.html',
-  styleUrls: ['./cad-viewer-master.component.css']
+  templateUrl: './treatment-viewer-master.component.html',
+  styleUrls: ['./treatment-viewer-master.component.css']
 })
-export class CadViewerMasterComponent implements OnInit, OnDestroy{
+export class TreatmentViewerMasterComponent implements OnInit, OnDestroy{
   selectedOrgan: string;
   patientId
   planId
@@ -22,7 +22,7 @@ export class CadViewerMasterComponent implements OnInit, OnDestroy{
   t: any;
   currentJustify = 'start';
   currentOrientation = 'horizontal';
-  constructor(private cadSceneControlsControllerService: CadSceneControlsControllerService, private varianApiService: VarianApiService,   private route: ActivatedRoute,
+  constructor(private cadSceneControlsControllerService: TreatmentSceneControlsControllerService, private varianApiService: VarianApiService, private route: ActivatedRoute,
               private router: Router){
   }
 

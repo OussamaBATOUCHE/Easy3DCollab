@@ -3,7 +3,7 @@ import {EventEmitter, Injectable, OnInit} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CadSceneControlsControllerService {
+export class TreatmentSceneControlsControllerService {
  /*
  * This Service handles the communications and conversion of commands between cad controls and cad scene.
  */

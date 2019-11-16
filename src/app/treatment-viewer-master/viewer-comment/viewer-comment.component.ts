@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {CadSceneControlsControllerService} from '../cad-viewer/cad-scene-controls-controller.service';
+import {TreatmentSceneControlsControllerService} from '../treatment-viewer/treatment-scene-controls-controller.service';
 import {FormControl} from '@angular/forms';
 import {PlanStateService} from '../shared/plan-state.service';
 
@@ -15,7 +15,7 @@ export class ViewerCommentComponent implements OnInit, OnDestroy {
   @Input() selectedObject: string;
   commentForm = new FormControl('')
   onSceneEventSubscriber: Subscription;
-  constructor(private cadSceneControlsControllerService: CadSceneControlsControllerService, private planStateService: PlanStateService) {
+  constructor(private cadSceneControlsControllerService: TreatmentSceneControlsControllerService, private planStateService: PlanStateService) {
   }
 
   ngOnInit() {

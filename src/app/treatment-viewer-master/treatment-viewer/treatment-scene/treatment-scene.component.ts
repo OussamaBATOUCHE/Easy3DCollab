@@ -4,16 +4,16 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GlTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { Mouse } from './mouse.interface';
-import {CadSceneControlsControllerService} from '../cad-scene-controls-controller.service';
+import {TreatmentSceneControlsControllerService} from '../treatment-scene-controls-controller.service';
 import { Mesh} from '../../../shared/models/mesh';
 import {IntersectionService} from './intersection.service';
 
 @Component({
   selector: 'app-cad-scene',
-  templateUrl: './cad-scene.component.html',
-  styleUrls: ['./cad-scene.component.scss']
+  templateUrl: './treatment-scene.component.html',
+  styleUrls: ['./treatment-scene.component.scss']
 })
-export class CadSceneComponent implements OnInit, AfterViewInit {
+export class TreatmentSceneComponent implements OnInit, AfterViewInit {
   @ViewChild('rendererContainer', {static: false}) rendererContainer: ElementRef;
   @ViewChild('canvasContainer', {static: false}) canvasContainer: ElementRef;
   @Output() cadScene: EventEmitter<THREE.Scene> = new EventEmitter<THREE.Scene>();
@@ -29,7 +29,7 @@ export class CadSceneComponent implements OnInit, AfterViewInit {
   rendererWidthScale = 0.96;
   rendererHeightScale = 0.8;
   SELECTED: Mesh;
-  constructor(private cadSceneControlsControllerService: CadSceneControlsControllerService ) {
+  constructor(private cadSceneControlsControllerService: TreatmentSceneControlsControllerService ) {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xececec);
     this.setCamera();

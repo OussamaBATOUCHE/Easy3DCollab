@@ -17,20 +17,20 @@ import {
 import { AppComponent } from './app.component';
 import { ContentLayoutComponent } from './layouts/content/content-layout.component';
 import { FullLayoutComponent } from './layouts/full/full-layout.component';
-import { CadViewerMasterComponent} from './cad-viewer-master/cad-viewer-master.component';
+import { TreatmentViewerMasterComponent} from './treatment-viewer-master/treatment-viewer-master.component';
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
-import { CadViewerComponent } from './cad-viewer-master/cad-viewer/cad-viewer.component';
-import { CadSceneComponent } from './cad-viewer-master/cad-viewer/cad-scene/cad-scene.component';
-import { CadControlsComponent } from './cad-viewer-master/cad-viewer/cad-controls/cad-controls.component';
-import {CadSceneControlsControllerService} from './cad-viewer-master/cad-viewer/cad-scene-controls-controller.service';
+import { TreatmentViewerComponent } from './treatment-viewer-master/treatment-viewer/treatment-viewer.component';
+import { TreatmentSceneComponent } from './treatment-viewer-master/treatment-viewer/treatment-scene/treatment-scene.component';
+import { TreatmentControlsComponent } from './treatment-viewer-master/treatment-viewer/treatment-controls/treatment-controls.component';
+import {TreatmentSceneControlsControllerService} from './treatment-viewer-master/treatment-viewer/treatment-scene-controls-controller.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ViewerCommentComponent } from './cad-viewer-master/viewer-comment/viewer-comment.component';
-import { ViewerCommentListComponent } from './cad-viewer-master/viewer-comment-list/viewer-comment-list.component';
-//import { DvhComponent } from './cad-viewer-master/dvh/dvh.component';
+import { ViewerCommentComponent } from './treatment-viewer-master/viewer-comment/viewer-comment.component';
+import { ViewerCommentListComponent } from './treatment-viewer-master/viewer-comment-list/viewer-comment-list.component';
+//import { DvhComponent } from './treatment-viewer-master/dvh/dvh.component';
 import { ChartsModule} from 'ng2-charts';
-import {DvhComponent} from './cad-viewer-master/dvh/dvh.component';
-import { ImageIsoDoseComponent } from './cad-viewer-master/image-iso-dose/image-iso-dose.component';
+import {DvhComponent} from './treatment-viewer-master/dvh/dvh.component';
+import { ImageIsoDoseComponent } from './treatment-viewer-master/image-iso-dose/image-iso-dose.component';
 import {NouisliderModule} from 'ng2-nouislider';
 import {Ng5SliderModule} from 'ng5-slider';
 import { PatientOverviewComponent } from './patient-overview/patient-overview.component';
@@ -48,7 +48,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
   @NgModule({
-    declarations: [AppComponent, FullLayoutComponent,  CadViewerMasterComponent, CadViewerComponent, CadSceneComponent, CadControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent],
+    declarations: [AppComponent, FullLayoutComponent,  TreatmentViewerMasterComponent, TreatmentViewerComponent, TreatmentSceneComponent, TreatmentControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent],
     imports: [
       BrowserAnimationsModule,
       AppRoutingModule,
@@ -76,7 +76,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
       },
       { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
-        CadSceneControlsControllerService
+        TreatmentSceneControlsControllerService
     ],
     bootstrap: [AppComponent]
   })
