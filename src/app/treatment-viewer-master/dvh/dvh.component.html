@@ -24,8 +24,24 @@
                     </div>
                 </div>
                 <div class="col-4">
+                    <div class="card bg-warning">
+                        <div class="card-content">
+                            <div class="px-3 py-3">
+                                <div class="media">
+                                    <div class="media-body white text-left">
+                                        <h3>{{wantedExposure | number}}</h3>
+                                        <span>Target Dose</span>
+                                    </div>
+                                    <div class="media-right align-self-center">
+                                        <i class="ft-loader white font-large-2 float-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <app-viewer-comment-list (selectedComment)="goToSlice($event)"
+
+                    <app-viewer-comment-list
                                              usedView="dvh" [planId]="planId" [patientId]="patientId"></app-viewer-comment-list>
                     <app-viewer-comment usedView="dvh" [selectedObject]="value" [planId]="planId" [patientId]="patientId"
                                         description="DvH"></app-viewer-comment>

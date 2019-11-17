@@ -15,6 +15,10 @@ export class VarianApiService {
   getPatientPlans(patientId: string) {
     return this.restService.get(patientId + '/plans/');
   }
+  getPatientPlan(patientId:string, planId) {
+    return this.restService.get(patientId + '/plans/' +planId);
+
+  }
   getDvHCurves(patientId: string, planId: string) {
     const curves = []
     return this.restService.get(patientId + '/plans/' + planId + '/dvhcurves')

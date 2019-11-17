@@ -6,7 +6,6 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { Mouse } from './mouse.interface';
 import {TreatmentSceneControlsControllerService} from '../treatment-scene-controls-controller.service';
 import { Mesh} from '../../../shared/models/mesh';
-import {IntersectionService} from './intersection.service';
 
 @Component({
   selector: 'app-cad-scene',

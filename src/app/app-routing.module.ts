@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     redirectTo: 'full-layout',
     pathMatch: 'full',
   },
-  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate: [AuthGuard] },
+  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 <hr />
 <div class="row" *ngFor="let comment of plan">
-    <blockquote class="blockquote mt-1 border-left-3 pl-2 text-small" [ngClass]="comment.userType === 1?'border-left-danger':'border-left-primary'"><p >
-        <small>{{comment.comment}}</small></p><div  class="blockquote-footer pt-1 pl-0">{{comment.name}} - {{comment._timestamp}} </div></blockquote>
+    <blockquote class="blockquote mt-1 border-left-3 pl-2 text-small" [ngClass]="comment.userType == 1?'border-left-danger':'border-left-primary'"><p >
+        <small>{{comment.comment}}</small></p><div  class="blockquote-footer pt-1 pl-0">{{comment.name}} {{comment.userType}}- {{comment._timestamp}} </div></blockquote>
 </div>

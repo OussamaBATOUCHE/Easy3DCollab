@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
+
 import {RestInterfaceService} from './rest.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {interval} from 'rxjs';

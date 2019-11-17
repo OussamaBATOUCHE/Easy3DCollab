@@ -20,7 +20,7 @@ export class DvhValueTableComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(data);
+
   }
   getColor(id,cat) {
 

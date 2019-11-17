@@ -13,6 +13,7 @@ export class DvhComponent implements OnInit, AfterViewInit {
     @Input()patientId;
     @Input()planId;
     rawData = []
+    wantedExposure;
     @ViewChild('testchart', {'static': false}) htmlChart;
     mychart: Chart;
     value = '';
@@ -43,10 +44,12 @@ export class DvhComponent implements OnInit, AfterViewInit {
     constructor(private varianApiService: VarianApiService,private modalService:NgbModal) { }
 
   ngOnInit() {
-
+        this.varianApiService.getPatientPlan(this.patientId,this.planId).subscribe(result=>{
+            this.wantedExposure = result['NumberOfFractions']*result['PlannedDosePerFraction'];
+        })
       const rawData = []
       this.varianApiService.getDvHCurves(this.patientId, this.planId).subscribe(result => {
-          result.forEach(curveName => {
+          (<[]>result).forEach(curveName => {
               this.varianApiService.getDvHCurve(this.patientId, this.planId, curveName).subscribe(
                   data => {
                       console.log(data)
@@ -87,7 +90,7 @@ export class DvhComponent implements OnInit, AfterViewInit {
       const clickx = event.event.layerX
       const clicky = event.event.layerY
       let minDist = 1000000;
-      let smallest: rgbColor;
+      let smallest;
 
       for (let i = 0; i < event.active.length; i++) {
           const dist = ((event.active[i]._model.x - clickx) ** 2) + ((event.active[i]._model.y - clicky) ** 2);
@@ -119,12 +122,11 @@ export class DvhComponent implements OnInit, AfterViewInit {
         return hex.length == 1 ? "0" + hex : hex;
     }
 
-    open(content  ) {
+    open(content ) {
 
         this.modalService.open(content, {size: 'xl'}).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
 }

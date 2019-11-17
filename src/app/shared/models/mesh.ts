@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {Material} from './material.model';
 export class Mesh {
-    private mesh;
+    mesh;
     private storedMaterialColor: THREE.Color;
     private unSelected = true;
     private uuid: string;

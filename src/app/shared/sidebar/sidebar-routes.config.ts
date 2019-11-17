@@ -3,7 +3,7 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
 
     {
-        path: '/full-layout', title: 'Full Layout', icon: 'ft-layout', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/login', title: 'Login', icon: 'ft-lock', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     {
         path: '/patients', title: 'Patients', icon: 'ft-user', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
