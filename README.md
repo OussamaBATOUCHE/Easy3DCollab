@@ -1,28 +1,5 @@
-# Apex
+#Easy3DCollab
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
-
-## Development server
-
-Run `ng serve` or `ng serve -aot` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+In radiation therapy treatment, the plan review process takes a lot of time to finally decide on a specific plan. One of the main time-consuming tasks in this process is the need to have face-to-face interactions between the oncologist (O)  and the planners (P). To tackle this problem, we propose a complete solution that aims to have as few interactions as possible between the O and the P through our asynchronous collaboration platform. 
+This would dramatically save the time for the plan review process and make it as 1) the O and the P will no longer need to meet physically, i.e., saving time for the oncologist who is one of the most critical resources, and also 2) provide them with a comprehensive 3D collaboration platform that is efficient and succinct as a fast way for the O and the P to communicate. We integrated our 3D collaboration platform with Varian APIs. 
+However, as future plans, we envision to extend this idea for remote surgery, since our 3D collaboration feature requires very little overhead which makes it a great candidate for remote surgery application where fast internet connection is not available. We used Angular and ThreeGS for front-end and for back-end we used Google #FireStore, #Python, #Docker, and #AzureStorage.
