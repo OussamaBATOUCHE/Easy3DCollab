@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {PlanStateService} from '../shared/plan-state.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {PlanStateService} from '../shared/plan-state.service';
   templateUrl: './viewer-comment-list.component.html',
   styleUrls: ['./viewer-comment-list.component.scss']
 })
-export class ViewerCommentListComponent implements OnInit {
+export class ViewerCommentListComponent implements OnInit,OnDestroy {
   @Input()patientId;
   @Input()planId;
   @Output() selectedComment = new EventEmitter<string>();
@@ -19,6 +19,9 @@ export class ViewerCommentListComponent implements OnInit {
 
   ngOnInit() {
     this.planSubscription = this.planStateService.getPlan(this.patientId, this.planId,this.usedView).
-    subscribe(result => this.plan = result[this.patientId][this.planId]['no']);
+    subscribe(result => this.plan = result[this.patientId][this.planId][this.usedView]);
+  }
+  ngOnDestroy(): void {
+  this.planSubscription.unsubscribe()
   }
 }

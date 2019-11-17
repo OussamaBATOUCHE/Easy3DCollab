@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {PlanStateService} from '../shared/plan-state.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {PlanStateService} from '../shared/plan-state.service';
   templateUrl: './summary-discussion.component.html',
   styleUrls: ['./summary-discussion.component.scss']
 })
-export class SummaryDiscussionComponent implements OnInit {
+export class SummaryDiscussionComponent implements OnInit,OnDestroy {
 
   @Input()patientId;
   @Input() planId;
@@ -24,5 +24,8 @@ export class SummaryDiscussionComponent implements OnInit {
       console.log(this.plan)
         }
     );
+  }
+  ngOnDestroy(): void {
+    this.planSubscription.unsubscribe()
   }
 }
