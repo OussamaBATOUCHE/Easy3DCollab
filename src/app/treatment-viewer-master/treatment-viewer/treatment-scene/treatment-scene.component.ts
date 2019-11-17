@@ -55,12 +55,14 @@ export class TreatmentSceneComponent implements OnInit, AfterViewInit {
 
   setCamera() {
     this.camera = new THREE.PerspectiveCamera(75, 800 / 500, 0.1, 5000);
-    this.camera.position.set(-1.8, 0.9, 2.7);
+    this.camera.position.set(-84, 120, 290);
+    this.camera.quaternion.set(-0.21,-0.076,-0.017,0.97)
+    this.camera.rotation.set(-0.44,-0.14,0.69,'XYZ')
   }
 
   setControls() {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.target.set(300, 300,  300);
+    this.controls.target.set(8, -160,  -290);
     this.controls.maxDistance = 1000;
     this.controls.update();
   }
@@ -82,15 +84,20 @@ export class TreatmentSceneComponent implements OnInit, AfterViewInit {
   lightScene() {
     const spotLight = new THREE.PointLight(0xffffff, 0.8);
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 10); // soft white light
+    const ambientLight = new THREE.AmbientLight(0x404040, 10);
     this.scene.add(ambientLight)
+    const ambientLight2 = new THREE.AmbientLight(0x404040, 10);
+    ambientLight2.position.set(300,300,300)// soft white light
+    this.scene.add(ambientLight2)
     spotLight.position.set(500, 500, 500);
     spotLight.castShadow = true;
     const spotLight2 = new THREE.PointLight(0xffffff, 5);
     spotLight2.position.set(-500, -5000, -500);
-
+    const spotlight3 = new THREE.PointLight(0xffffff, 5);
+    spotlight3.position.set(500, 5000, 500);
     this.scene.add(spotLight);
-    this.scene.add(spotLight2);
+    this.scene.add(spotLight2)
+    this.scene.add(spotlight3);
   }
 
   setSceneStage() {
@@ -166,8 +173,10 @@ export class TreatmentSceneComponent implements OnInit, AfterViewInit {
     raycaster.setFromCamera(this.mouse, this.camera);
     const intersects = raycaster.intersectObjects(this.scene.children, true);
     if ( intersects.length > 0) {
+
       if (this.INTERSECTED == null) {
         if ((<THREE.Mesh>intersects[ 0 ].object).isMesh) {
+
           this.INTERSECTED = new Mesh((<THREE.Mesh>intersects[ 0 ].object));
           this.intersectedMaterials.emit(<THREE.Mesh> intersects[0].object);
         }
@@ -189,7 +198,6 @@ export class TreatmentSceneComponent implements OnInit, AfterViewInit {
   onMouseMove(event) {
 
     if (event.target.localName === 'canvas') {
-
       event.preventDefault();
       this.mouse.x = ((event.layerX - event.explicitOriginalTarget.offsetLeft) / this.canvasContainer.nativeElement.clientWidth) * 2 - 1;
       this.mouse.y = -((event.layerY) / this.canvasContainer.nativeElement.clientHeight) * 2 + 1;
@@ -199,6 +207,7 @@ export class TreatmentSceneComponent implements OnInit, AfterViewInit {
   }
   onSelectPart() {
     if (this.INTERSECTED != null) {
+
       if (this.SELECTED == null) {
         this.SELECTED = this.INTERSECTED;
         this.SELECTED.setSelected();

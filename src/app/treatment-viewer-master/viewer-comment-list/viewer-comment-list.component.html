@@ -3,12 +3,12 @@
     <div class="card-content" aria-expanded="true">
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of plan | keyvalue">
+                <li class="list-group-item" *ngFor="let item of plan  | keyvalue">
                     <a (click)="isCollapsed[item.key] = !isCollapsed[item.key];selectedComment.emit(item.key)"><span class="badge badge-primary mr-2"> {{item.value.length}}</span> {{item.key}}</a>
                     <div class="" *ngIf="isCollapsed[item.key]">
                         <hr />
-                        <blockquote class="blockquote border-left-primary mt-1 border-left-3 pl-2 text-small" *ngFor="let comment of item.value"><p >
-                            <small>{{comment}}</small></p><div  class="blockquote-footer pt-1 pl-0">Dr. House </div></blockquote>
+                        <blockquote class="blockquote mt-1 border-left-3 pl-2 text-small" [ngClass]="comment.userType === 1?'border-left-danger':'border-left-primary'" *ngFor="let comment of item.value"><p >
+                            <small>{{comment.comment}}</small></p><div  class="blockquote-footer pt-1 pl-0">{{comment.name}} - {{comment._timestamp}} </div></blockquote>
 
                     </div>
                 </li>

@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core'
 import { Chart, ChartDataSets, ChartOptions, ChartData} from 'chart.js';
 import { Color, Label, SingleDataSet } from 'ng2-charts';
 import {VarianApiService} from '../../shared/services/varian-api.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dvh',
@@ -11,6 +12,7 @@ import {VarianApiService} from '../../shared/services/varian-api.service';
 export class DvhComponent implements OnInit, AfterViewInit {
     @Input()patientId;
     @Input()planId;
+    rawData = []
     @ViewChild('testchart', {'static': false}) htmlChart;
     mychart: Chart;
     value = '';
@@ -35,9 +37,10 @@ export class DvhComponent implements OnInit, AfterViewInit {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
-  public lineChartPlugins = [];
+  public lineChartPlugins = [];  closeResult: string;
 
-  constructor(private varianApiService: VarianApiService) { }
+
+    constructor(private varianApiService: VarianApiService,private modalService:NgbModal) { }
 
   ngOnInit() {
 
@@ -46,17 +49,17 @@ export class DvhComponent implements OnInit, AfterViewInit {
           result.forEach(curveName => {
               this.varianApiService.getDvHCurve(this.patientId, this.planId, curveName).subscribe(
                   data => {
+                      console.log(data)
+                      this.rawData.push(data);
                       // this.mychart.data.datasets.push(this.transformRawData(data));
                       this.lineChartData.push(this.transformRawData(data))}
 
               )
           })
       })
-      console.log(this.htmlChart)
   }
   ngAfterViewInit(): void {
 
-      console.log(this.htmlChart)
 
   }
 
@@ -116,12 +119,12 @@ export class DvhComponent implements OnInit, AfterViewInit {
         return hex.length == 1 ? "0" + hex : hex;
     }
 
-     rgbToHex(r, g, b) {
-        return "#" + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
-    }
-    stringToRgb(rgbstring:string) {
-        rgbstring = rgbstring.replace('rgb(','');
-        rgbstring = rgbstring.replace(')','');
-        return rgbstring.split(',')
+    open(content  ) {
+
+        this.modalService.open(content, {size: 'xl'}).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
     }
 }

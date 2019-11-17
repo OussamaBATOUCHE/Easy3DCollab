@@ -1,0 +1,38 @@
+
+
+<table class="table table-responsive-md text-center" >
+    <thead>
+    <tr>
+        <th>Dose</th>
+
+        <th *ngFor="let dataElement of data">{{dataElement.Id}}</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr  >
+        <td >Minimum</td>
+        <td *ngFor="let dataElement of data" >
+        <div class="bade badge-success" [ngClass]="getColor(dataElement.Id,'MinDose')"> {{dataElement.MinDose | number}}</div>
+        </td>
+
+    </tr>
+    <tr  >
+        <td>Mean</td>
+        <td *ngFor="let dataElement of data">
+
+            <div class="bade badge-success" [ngClass]="getColor(dataElement.Id,'MeanDose')">   {{dataElement.MeanDose | number}}</div>
+        </td>
+
+    </tr>
+    <tr  >
+        <td>Maximum</td>
+        <td *ngFor="let dataElement of data">
+            <div class="bade badge-success" [ngClass]="getColor(dataElement.Id,'MaxDose')"> {{dataElement.MaxDose | number}}</div>
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>

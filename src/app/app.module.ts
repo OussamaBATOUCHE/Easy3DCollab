@@ -27,6 +27,7 @@ import {TreatmentSceneControlsControllerService} from './treatment-viewer-master
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ViewerCommentComponent } from './treatment-viewer-master/viewer-comment/viewer-comment.component';
 import { ViewerCommentListComponent } from './treatment-viewer-master/viewer-comment-list/viewer-comment-list.component';
+import { environment} from './shared/environment.const';
 //import { DvhComponent } from './treatment-viewer-master/dvh/dvh.component';
 import { ChartsModule} from 'ng2-charts';
 import {DvhComponent} from './treatment-viewer-master/dvh/dvh.component';
@@ -36,6 +37,10 @@ import {Ng5SliderModule} from 'ng5-slider';
 import { PatientOverviewComponent } from './patient-overview/patient-overview.component';
 import { PatientInfoComponent } from './patient-overview/patient-info/patient-info.component';
 import { PatientPlansComponent } from './patient-overview/patient-plans/patient-plans.component';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireModule} from '@angular/fire';
+import { DvhValueTableComponent } from './treatment-viewer-master/dvh/dvh-value-table/dvh-value-table.component';
+import { TherapyInformationComponent } from './treatment-viewer-master/dvh/therapy-information/therapy-information.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
@@ -48,11 +53,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
   @NgModule({
-    declarations: [AppComponent, FullLayoutComponent,  TreatmentViewerMasterComponent, TreatmentViewerComponent, TreatmentSceneComponent, TreatmentControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent],
+    declarations: [AppComponent, FullLayoutComponent,  TreatmentViewerMasterComponent, TreatmentViewerComponent, TreatmentSceneComponent, TreatmentControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent, DvhValueTableComponent, TherapyInformationComponent],
     imports: [
       BrowserAnimationsModule,
       AppRoutingModule,
       SharedModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
       HttpClientModule,
       ReactiveFormsModule,
       NgbModule,

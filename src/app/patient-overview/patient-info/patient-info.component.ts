@@ -10,8 +10,9 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 export class PatientInfoComponent implements OnInit {
   patients
   patientId
-  constructor(private varianApiService: VarianApiService, private  modalService: NgbModal) { }
   closeResult: string;
+  constructor(private varianApiService: VarianApiService, private  modalService: NgbModal) { }
+
 
   ngOnInit() {
     this.patients = this.varianApiService.getPatients()

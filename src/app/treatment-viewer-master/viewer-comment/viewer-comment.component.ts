@@ -10,7 +10,9 @@ import {PlanStateService} from '../shared/plan-state.service';
   styleUrls: ['./viewer-comment.component.scss']
 })
 export class ViewerCommentComponent implements OnInit, OnDestroy {
-  @Input()usedView: string ="";
+  @Input() usedView: string ="";
+  @Input() planId:string;
+  @Input() patientId;
   @Input() description: string;
   @Input() selectedObject: string;
   commentForm = new FormControl('')
@@ -29,7 +31,8 @@ export class ViewerCommentComponent implements OnInit, OnDestroy {
     this.onSceneEventSubscriber.unsubscribe();
   }
   onSubmit(): void {
-    this.planStateService.addCommentToPlan(this.usedView, this.selectedObject, this.commentForm.value);
+    console.log("commeas");
+    this.planStateService.addCommentToPlan(this.patientId, this.planId, this.usedView, this.selectedObject, this.commentForm.value);
     this.commentForm.reset()
   }
 }

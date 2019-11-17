@@ -20,8 +20,8 @@
             </div>
 
         </div>
-        <app-viewer-comment-list (selectedComment)="goToSlice($event)" usedView="iso2d"></app-viewer-comment-list>
-        <app-viewer-comment usedView="iso2d" [selectedObject]="value" description="Slice" ></app-viewer-comment>
+        <app-viewer-comment-list (selectedComment)="goToSlice($event)" usedView="iso2d" [planId]="planId" [patientId]="patientId"></app-viewer-comment-list>
+        <app-viewer-comment usedView="iso2d" [selectedObject]="value" description="Slice" [planId]="planId" [patientId]="patientId" ></app-viewer-comment>
 
 
     </div>

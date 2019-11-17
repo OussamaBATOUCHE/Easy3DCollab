@@ -2,7 +2,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Select an active tab by id</h4>
+        <h4 class="card-title">{{patientId}} - Plan {{planId}}</h4>
     </div>
     <div class="card-content">
         <div class="card-body">
@@ -26,10 +26,9 @@
                                     </div>
                                 </div>
                             </div>
-                            {{test | async}}
-                            {{patients | async}}
-                            <app-viewer-comment-list usedView="3d"></app-viewer-comment-list>
-                            <app-viewer-comment usedView="3d"></app-viewer-comment>
+
+                            <app-viewer-comment-list usedView="3d" [patientId]="patientId" [planId]="planId"></app-viewer-comment-list>
+                            <app-viewer-comment usedView="3d" [patientId]="patientId" [planId]="planId"></app-viewer-comment>
 
 
                         </div>
@@ -37,13 +36,19 @@
                     </ng-template>
                 </ngb-tab>
                 <ngb-tab id="bar">
-                    <ng-template ngbTabTitle>Organ dosis</ng-template>
+                    <ng-template ngbTabTitle>Dose-Volume</ng-template>
                     <ng-template ngbTabContent>
 <app-dvh [patientId]="patientId" [planId]="planId"></app-dvh>
                     </ng-template>
                 </ngb-tab>
                 <ngb-tab id="isodose">
-                    <ng-template ngbTabTitle>2D Iso Dose Curves</ng-template>
+                    <ng-template ngbTabTitle>Contours</ng-template>
+                    <ng-template ngbTabContent>
+                        <app-image-iso-dose [patientId]="patientId" [planId]="planId"></app-image-iso-dose>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab id="summary">
+                    <ng-template ngbTabTitle>Summary</ng-template>
                     <ng-template ngbTabContent>
                         <app-image-iso-dose [patientId]="patientId" [planId]="planId"></app-image-iso-dose>
                     </ng-template>
