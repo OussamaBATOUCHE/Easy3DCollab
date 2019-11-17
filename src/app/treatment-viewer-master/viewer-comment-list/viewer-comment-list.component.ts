@@ -19,6 +19,6 @@ export class ViewerCommentListComponent implements OnInit {
 
   ngOnInit() {
     this.planSubscription = this.planStateService.getPlan(this.patientId, this.planId,this.usedView).
-    subscribe(result => this.plan = result[this.patientId][this.planId][this.usedView]);
+    subscribe(result => this.plan = result[this.patientId][this.planId]['no']);
   }
 }

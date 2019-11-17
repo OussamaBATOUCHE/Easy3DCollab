@@ -41,6 +41,8 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
 import {AngularFireModule} from '@angular/fire';
 import { DvhValueTableComponent } from './treatment-viewer-master/dvh/dvh-value-table/dvh-value-table.component';
 import { TherapyInformationComponent } from './treatment-viewer-master/dvh/therapy-information/therapy-information.component';
+import { SummaryComponent } from './treatment-viewer-master/summary/summary.component';
+import { SummaryDiscussionComponent } from './treatment-viewer-master/summary-discussion/summary-discussion.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
@@ -53,7 +55,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
   @NgModule({
-    declarations: [AppComponent, FullLayoutComponent,  TreatmentViewerMasterComponent, TreatmentViewerComponent, TreatmentSceneComponent, TreatmentControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent, DvhValueTableComponent, TherapyInformationComponent],
+    declarations: [AppComponent, FullLayoutComponent,  TreatmentViewerMasterComponent, TreatmentViewerComponent, TreatmentSceneComponent, TreatmentControlsComponent, ViewerCommentComponent, ViewerCommentListComponent, DvhComponent, ImageIsoDoseComponent, PatientOverviewComponent, PatientInfoComponent, PatientPlansComponent, DvhValueTableComponent, TherapyInformationComponent, SummaryComponent, SummaryDiscussionComponent],
     imports: [
       BrowserAnimationsModule,
       AppRoutingModule,

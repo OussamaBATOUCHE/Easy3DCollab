@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-6"><h2>Summary</h2>
+        <fieldset class="form-group">
+            <textarea class="form-control mb-1" id="placeTextarea" rows="13" placeholder="Summary" [formControl]="commentForm"></textarea>
+            <h3>Plan Status</h3>
+            <div class="col-6"><select class="form-control" id="basicSelect" [formControl]="checkboxForm">
+                <option>Accept</option>
+                <option>Pending</option>
+                <option>Reject</option>
+            </select></div>
+
+
+        </fieldset>
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+
+
+            <button type="button" class="btn btn-sm btn-raised btn-secondary">Cancel</button>
+            <button type="button" class="btn btn-sm btn-raised btn-success" (click)="onSubmit()">Add Summary</button>
+
+        </div>
+    </div>
+    <div class="col-6"><h2>Discussion</h2>
+    <app-summary-discussion [patientId]="patientId" [planId]="planId" [usedView]="'summary'"></app-summary-discussion></div>
+</div>
