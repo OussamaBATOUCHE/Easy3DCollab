@@ -39,7 +39,7 @@
     "ng2-validation": "4.2.0",
     "ng5-slider": "^1.2.4",
     "ngx-perfect-scrollbar": "8.0.0",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "prismjs": "1.17.1",
     "resize-observer-polyfill": "1.5.1",
     "rxjs": "6.5.3",
